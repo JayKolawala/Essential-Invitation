@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --essential-primary: #78866b;
+  --essential-primary-rgb: 120 134 107;
+  --essential-secondary: #d8cdbb;
+  --essential-secondary-rgb: 216 205 187;
+  --essential-bg: #faf8f3;
+  --essential-bg-rgb: 250 248 243;
+  --essential-surface: #ffffff;
+  --essential-surface-rgb: 255 255 255;
+  --essential-surface-alt: #f3efe6;
+  --essential-surface-alt-rgb: 243 239 230;
+  --essential-text: #35352f;
+  --essential-text-rgb: 53 53 47;
+  --essential-text-muted: #68685d;
+  --essential-text-muted-rgb: 104 104 93;
+  --essential-accent: #b79a72;
+  --essential-accent-rgb: 183 154 114;
+  --essential-on-primary: #faf8f3;
+  --essential-on-primary-rgb: 250 248 243;
+  --essential-on-secondary: #35352f;
+  --essential-on-secondary-rgb: 53 53 47;
+  --essential-on-accent: #2c2820;
+  --essential-on-accent-rgb: 44 40 32;
+  --essential-border: rgba(53, 53, 47, 0.11);
+  --essential-border-strong: rgba(120, 134, 107, 0.34);
+  --essential-tint-primary: rgba(120, 134, 107, 0.1);
+  --essential-tint-secondary: rgba(216, 205, 187, 0.28);
+  --essential-tint-accent: rgba(183, 154, 114, 0.16);
+  --essential-shadow: rgba(53, 53, 47, 0.08);
+
+  --ih-maroon: #702632;
+  --ih-maroon-rgb: 112 38 50;
+  --ih-red: #a83d3d;
+  --ih-red-rgb: 168 61 61;
+  --ih-gold: #d5a642;
+  --ih-gold-rgb: 213 166 66;
+  --ih-ivory: #f9eed8;
+  --ih-ivory-rgb: 249 238 216;
+  --ih-ivory-card: #fffaf0;
+  --ih-ivory-card-rgb: 255 250 240;
+  --ih-ivory-alt: #f1dfb9;
+  --ih-ivory-alt-rgb: 241 223 185;
+  --ih-green: #3d684a;
+  --ih-green-rgb: 61 104 74;
+  --ih-terracotta: #c77752;
+  --ih-terracotta-rgb: 199 119 82;
+  --ih-ink: #2a1414;
+  --ih-ink-rgb: 42 20 20;
+  --ih-ink-muted: #5d3a35;
+  --ih-ink-muted-rgb: 93 58 53;
+  --ih-on-maroon: #fff8e9;
+  --ih-on-maroon-rgb: 255 248 233;
+  --ih-on-gold: #2a1414;
+  --ih-on-gold-rgb: 42 20 20;
+  --ih-border: rgba(112, 38, 50, 0.24);
+  --ih-border-gold: rgba(213, 166, 66, 0.72);
+  --ih-font-heading: 'Yatra One';
+  --ih-font-script: 'Great Vibes';
+  --ih-font-body: 'Poppins';
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background-color: rgba(213, 166, 66, 0.28);
+  }
+}
+
+.soft-arch-frame {
+  border-radius: 9999px 9999px 16px 16px;
+}
+
+/* Rich 3D Layered Indian Silk & Handmade Parchment Backdrop */
+.heritage-paper {
+  background-color: var(--ih-ivory);
+  background-image:
+    radial-gradient(ellipse 85% 60% at 50% 0%, rgba(255, 251, 240, 0.75) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(199, 119, 82, 0.16) 0%, transparent 68%),
+    radial-gradient(rgba(112, 38, 50, 0.06) 0.9px, transparent 0),
+    radial-gradient(rgba(213, 166, 66, 0.09) 0.8px, transparent 0);
+  background-size: 100% 100%, 100% 100%, 24px 24px, 36px 36px;
+  background-position: 0 0, 0 0, 0 0, 12px 12px;
+}
+
+/* Rich Velvet Maroon 3D Backdrop for Cover & Showcase Bands */
+.heritage-velvet {
+  background-color: #4f1721;
+  background-image:
+    radial-gradient(circle at 50% 32%, rgba(168, 61, 61, 0.38) 0%, rgba(79, 23, 33, 0.85) 55%, #2d0b12 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(213, 166, 66, 0.04) 0px,
+      rgba(213, 166, 66, 0.04) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+}
+
+/* Raised 3D Miniature Painting Frame with Gold Bevel & Depth Shadow */
+.miniature-frame {
+  background-color: var(--ih-ivory-card);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 2px var(--ih-gold),
+    inset 0 0 0 6px var(--ih-ivory-card),
+    inset 0 0 0 7px rgba(112, 38, 50, 0.45),
+    0 20px 44px -14px rgba(68, 20, 28, 0.34),
+    0 8px 18px -8px rgba(68, 20, 28, 0.2);
+}
+
+/* Explicit Heritage Utility Fallbacks (guarantees instant HMR styling) */
+.font-heritageDisplay {
+  font-family: var(--ih-font-heading), Georgia, serif;
+}
+.font-heritageScript {
+  font-family: var(--ih-font-script), cursive;
+}
+.font-heritageBody {
+  font-family: var(--ih-font-body), system-ui, sans-serif;
+}
+
+.bg-ih-ivory {
+  background-color: var(--ih-ivory);
+}
+.bg-ih-ivoryCard {
+  background-color: var(--ih-ivory-card);
+}
+.bg-ih-ivoryAlt {
+  background-color: var(--ih-ivory-alt);
+}
+.bg-ih-maroon {
+  background-color: var(--ih-maroon);
+}
+.bg-ih-red {
+  background-color: var(--ih-red);
+}
+.bg-ih-gold {
+  background-color: var(--ih-gold);
+}
+.bg-ih-green {
+  background-color: var(--ih-green);
+}
+
+.text-ih-maroon {
+  color: var(--ih-maroon);
+}
+.text-ih-red {
+  color: var(--ih-red);
+}
+.text-ih-gold {
+  color: var(--ih-gold);
+}
+.text-ih-green {
+  color: var(--ih-green);
+}
+.text-ih-ink {
+  color: var(--ih-ink);
+}
+.text-ih-inkMuted {
+  color: var(--ih-ink-muted);
+}
+.text-ih-ivory {
+  color: var(--ih-ivory);
+}
+.text-ih-onMaroon {
+  color: var(--ih-on-maroon);
+}
+.text-ih-onGold {
+  color: var(--ih-on-gold);
+}
+.border-ih-gold {
+  border-color: var(--ih-gold);
+}
+.border-ih-border {
+  border-color: var(--ih-border);
+}
+
+@keyframes heritageSpinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heritageBellSway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes heritageDiyaFlicker {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1.09, 1.15) translateY(-1px);
+    opacity: 1;
+  }
+}
+
+.animate-mandala-slow {
+  animation: heritageSpinSlow 42s linear infinite;
+}
+
+.animate-bell-sway {
+  transform-origin: top center;
+  animation: heritageBellSway 4.2s ease-in-out infinite;
+}
+
+.animate-diya-flicker {
+  transform-origin: bottom center;
+  animation: heritageDiyaFlicker 1.9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-mandala-slow,
+  .animate-bell-sway,
+  .animate-diya-flicker {
+    animation: none;
+  }
+}
