@@ -40,6 +40,8 @@ export const HeritageNav: React.FC<HeritageNavProps> = ({
   }, []);
 
   const showAudio = audioStatus !== 'unavailable' && audioStatus !== 'error';
+  const groomInitial = config.couple.groomFirst.charAt(0).toUpperCase();
+  const brideInitial = config.couple.brideFirst.charAt(0).toUpperCase();
 
   return (
     <header
@@ -47,22 +49,79 @@ export const HeritageNav: React.FC<HeritageNavProps> = ({
         backgroundColor: scrolled ? 'rgba(255, 250, 240, 0.96)' : 'rgba(249, 238, 216, 0.92)',
         borderColor: 'var(--ih-gold)',
       }}
-      className="fixed inset-x-0 top-0 z-40 border-b py-2.5 shadow-sm backdrop-blur-md transition-all duration-300"
+      className="fixed inset-x-0 top-0 z-40 border-b py-2 shadow-sm backdrop-blur-md transition-all duration-300"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-8">
+        {/* Bespoke Indian Heritage Lotus Crest & Two-Tier Wordmark */}
         <a
           href="#mandap"
-          className="flex items-center gap-2.5 text-ih-maroon transition-opacity hover:opacity-80"
+          aria-label={`${config.couple.groomFirst} & ${config.couple.brideFirst} — Return to top`}
+          className="group flex items-center gap-2.5 text-ih-maroon transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ih-gold sm:gap-3"
         >
-          <span
-            style={{ backgroundColor: 'var(--ih-maroon)', color: 'var(--ih-on-maroon)' }}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-ih-gold font-heritageDisplay text-xs"
-          >
-            {config.couple.monogram}
-          </span>
-          <span className="hidden font-heritageDisplay text-lg sm:inline">
-            {config.couple.groomFirst} &amp; {config.couple.brideFirst}
-          </span>
+          <div className="relative flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
+            {/* Ornamental Lotus Mandala Ring */}
+            <svg
+              viewBox="0 0 56 56"
+              fill="none"
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:rotate-45"
+            >
+              <circle
+                cx="28"
+                cy="28"
+                r="25"
+                stroke="var(--ih-gold)"
+                strokeWidth="1.2"
+              />
+              <circle
+                cx="28"
+                cy="28"
+                r="21.5"
+                stroke="var(--ih-maroon)"
+                strokeWidth="0.8"
+                strokeDasharray="2 2.5"
+                strokeOpacity="0.65"
+              />
+              {Array.from({ length: 8 }, (_, idx) => (
+                <g key={idx} transform={`rotate(${idx * 45} 28 28)`}>
+                  <path
+                    d="M28 1.5L30.2 5.2H25.8L28 1.5Z"
+                    fill={idx % 2 === 0 ? 'var(--ih-gold)' : 'var(--ih-red)'}
+                  />
+                </g>
+              ))}
+            </svg>
+
+            {/* Inner Maroon Crest Seal */}
+            <div
+              style={{
+                backgroundColor: 'var(--ih-maroon)',
+                color: 'var(--ih-on-maroon)',
+                borderColor: 'var(--ih-gold)',
+              }}
+              className="relative flex h-8 w-8 items-center justify-center rounded-full border font-heritageDisplay text-xs tracking-tight shadow-sm sm:h-9 sm:w-9"
+            >
+              <span className="-translate-y-[0.5px]">{groomInitial}</span>
+              <span className="mx-[1.5px] font-heritageScript text-base leading-none text-ih-gold">
+                &amp;
+              </span>
+              <span className="translate-y-[0.5px]">{brideInitial}</span>
+            </div>
+          </div>
+
+          {/* Two-Tier Heritage Wordmark */}
+          <div className="flex flex-col leading-none">
+            <span className="flex items-baseline gap-1 font-heritageDisplay text-base tracking-wide text-ih-maroon sm:gap-1.5 sm:text-xl">
+              <span>{config.couple.groomFirst}</span>
+              <span className="font-heritageScript text-xl leading-none text-ih-red sm:text-2xl">
+                &amp;
+              </span>
+              <span>{config.couple.brideFirst}</span>
+            </span>
+            <span className="mt-1 hidden font-heritageBody text-[9px] font-semibold uppercase tracking-[0.2em] text-ih-inkMuted sm:block">
+              {config.couple.weddingDateDisplay} · {config.couple.locationDisplay}
+            </span>
+          </div>
         </a>
 
         <nav aria-label="Primary Navigation" className="hidden items-center gap-6 lg:flex">
